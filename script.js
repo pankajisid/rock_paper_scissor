@@ -1,3 +1,4 @@
+/* produce computer choice based on random number generate by Math.random() function uniformly in (0,1) */
 function getComputerChoice(){
     let number =Math.random();
     if(number<=0.3){
@@ -10,14 +11,17 @@ function getComputerChoice(){
         return "scissor";
     }
 }
+/* takes user choice */
 
 function getHumanChoice(){
-    let choice =prompt("Please enter the your choice (rock, paper or scissor) :");
+    let choice =prompt("Please enter the your choice (rock, paper or scissor) and if you want to quit : type quit :");
     return choice.toLowerCase();
 }
+/* two global variables (humanscore and computerscore) are declared with initial value zero */
 
 let humanscore=0;
 let computerscore=0;
+
 
 function playRound(){
     const humanChoice=getHumanChoice();
@@ -52,11 +56,10 @@ function playRound(){
 }
 
 let flag=true;
-
+/* this functions takes care how long user wants to play */
 while(flag){
     playRound();
-    let input_str =prompt("Do you want to play again [y/n] :");
-    if(input_str.toLowerCase()==="n"){
+    if(getHumanChoice().toLowerCase()==="quit"){
         flag=false;
     }
 }
